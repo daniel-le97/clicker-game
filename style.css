@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/668ce5b9-ff0d-4e72-b030-05dcb37eb1cc/dfbxiig-a29d5a3a-248d-46cb-8341-15446088b60d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY2OGNlNWI5LWZmMGQtNGU3Mi1iMDMwLTA1ZGNiMzdlYjFjY1wvZGZieGlpZy1hMjlkNWEzYS0yNDhkLTQ2Y2ItODM0MS0xNTQ0NjA4OGI2MGQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.KOqfJvj42knmikpMFdZYGtC5_h-lBCvuqdkVUcYHSbI);
+  background-size: cover;
+  z-index: -1;
+}
+
+/* main {
+  background-image: url(/output-onlinegiftools.gif);
+  background-size: contain;
+} */
+
+#fireFlies {
+  background-size: contain;
+
+  z-index: 0;
+}
+
+#imageHere {
+  background-size: cover;
+  background-position: center;
+}
+
+#stayHere {
+  position: relative;
+}
+#bottonFix {
+  position: absolute;
+  bottom: 0;
+}
+#bottomFix {
+  transform: translateY(70vh);
+  background-color: rgba(240, 248, 255, 0);
+}
+.hidden {
+  display: none;
+}
