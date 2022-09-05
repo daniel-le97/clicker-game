@@ -43,7 +43,7 @@ const clickUpgrades = [
   {
     name: "electricity",
     amount: 0,
-    cost: 5000000,
+    cost: 5,
     value: 500,
     type: "interval",
   },
@@ -55,7 +55,7 @@ let clickValue = 1;
 
 let autoClickValue = 0;
 
-var interNum = 1000;
+let interNum = 1000;
 
 function clickFirefly() {
   fireFlyTotal += clickValue;
@@ -85,6 +85,10 @@ function updateText() {
 
   document.getElementById("maxTotal").innerText = Math.floor(maxTotal);
 
+  document.getElementById("electricity").innerText = Math.floor(
+    clickUpgrades[4].cost
+  );
+
   // NOTE these don't work the way id like them too
   if (clickUpgrades[0].cost > fireFlyTotal) {
     clickButton1.classList.add("disabled");
@@ -108,6 +112,11 @@ function updateText() {
     autoButton2.classList.add("disabled");
   } else {
     autoButton2.classList.remove("disabled");
+  }
+  if (clickUpgrades[4].cost > fireFlyTotal) {
+    document.getElementById("electricityBtn").classList.add("disabled");
+  } else {
+    document.getElementById("electricityBtn").classList.remove("disabled");
   }
 
   total.innerText = Math.floor(fireFlyTotal);
@@ -148,9 +157,26 @@ function manualClick(name) {
   updateText();
 }
 
+// function intervalTimer() {
+//   let i = setInterval(autoClick, interNum);
+//   clearInterval(i);
+
+// }
+// function timeout() {
+//   let i = setInterval(autoClick, interNum);
+//   clearInterval(i);
+
+//   setTimeout(function () {
+//     fireFlyTotal += autoClickValue;
+//     updateText();
+//     timeout();
+//   }, interNum);
+// }
+
 function autoClick() {
   fireFlyTotal += autoClickValue;
   maxTotal += autoClickValue;
   updateText();
+  // setInterval(autoClick, interNum);
 }
 setInterval(autoClick, interNum);
