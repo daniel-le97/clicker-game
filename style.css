@@ -23,8 +23,12 @@ body {
 
 #imageHere {
   background-size: cover;
-  background-position: center;
-  transform: translateY(-6vh);
+  /* background-position: center;
+  transform: translateY(-6vh); */
+}
+.rotated-image {
+  -webkit-transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 
 #stayHere {
@@ -41,4 +45,3 @@ body {
 .hidden {
   display: none;
 }
-

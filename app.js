@@ -11,6 +11,15 @@ const total = document.getElementById("firefliesTotal");
 const ffOverTime = document.getElementById("ffOver");
 const ffOnClick = document.getElementById("ffOnClick");
 
+let fireFlyTotal = 0;
+let maxTotal = 0;
+
+let clickValue = 1;
+
+let autoClickValue = 0;
+
+let interNum = 3000;
+
 const clickUpgrades = [
   {
     name: "flyCatcher",
@@ -44,18 +53,15 @@ const clickUpgrades = [
     name: "electricity",
     amount: 0,
     cost: 5,
-    value: 500,
+    value: 2,
     type: "interval",
   },
+  {
+    name: "secondSun",
+    amount: 0,
+    cost: 1000000,
+  },
 ];
-let fireFlyTotal = 0;
-let maxTotal = 0;
-
-let clickValue = 1;
-
-let autoClickValue = 0;
-
-let interNum = 1000;
 
 function clickFirefly() {
   fireFlyTotal += clickValue;
@@ -63,10 +69,6 @@ function clickFirefly() {
   updateText();
   console.log(clickValue, fireFlyTotal);
 }
-
-// function autoClick(val) {
-//   clickValue;
-// }
 function updateText() {
   // @ts-ignore
   document.getElementById("cost1").innerText = Math.floor(
@@ -80,6 +82,9 @@ function updateText() {
   );
   document.getElementById("cost4").innerText = Math.floor(
     clickUpgrades[3].cost
+  );
+  document.getElementById("secondSun").innerText = Math.floor(
+    clickUpgrades[5].cost
   );
   document.getElementById("timer-icon").innerText = interNum / 1000;
 
@@ -131,7 +136,6 @@ function updateText() {
   // @ts-ignore
   ffOnClick.innerText = Math.floor(clickValue);
 }
-
 function manualClick(name) {
   let clickers = clickUpgrades.find((c) => c.name == name);
 
@@ -150,33 +154,21 @@ function manualClick(name) {
 
       // STUB condition THREE
       // NOTE this doesn't work as intended need to figure out a way to update an interval in setinterval a looping set timeout wasn't working either
-    } else if (interNum > 500) {
-      interNum -= clickers.value;
+    } else if (clickers.type == "interval") {
+      clickers.cost *= 2;
+      autoClickValue *= 2;
+      maxTotal += autoClickValue * 2;
+    }
+    // STUB condition Four
+    else {
+      imageId.setAttribute("onmousemove", "clickFirefly()");
     }
   }
   updateText();
 }
-
-// function intervalTimer() {
-//   let i = setInterval(autoClick, interNum);
-//   clearInterval(i);
-
-// }
-// function timeout() {
-//   let i = setInterval(autoClick, interNum);
-//   clearInterval(i);
-
-//   setTimeout(function () {
-//     fireFlyTotal += autoClickValue;
-//     updateText();
-//     timeout();
-//   }, interNum);
-// }
-
 function autoClick() {
   fireFlyTotal += autoClickValue;
   maxTotal += autoClickValue;
   updateText();
-  // setInterval(autoClick, interNum);
 }
 setInterval(autoClick, interNum);
