@@ -27,6 +27,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
+      integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" / >
     <style>
       body.debug .container,
@@ -56,16 +63,6 @@
       <section class="container-fluid position-fixed">
         <div class="row justify-content-center">
           <div class="col-10 text-center" id="stayHere">
-            <!-- <button onclick="clickFirefly()" id="mainClick">
-              <img
-                src="/output-onlinegiftools.gif"
-                alt=""
-                class="image fluid"
-                id="imageHere"
-                height="75%"
-                width="75%"
-              />
-            </button> -->
             <img
               src="/output-onlinegiftools.gif"
               alt=""
@@ -78,61 +75,89 @@
           </div>
         </div>
       </section>
-      <section class="container" id="bottomFix">
-        <div class="row text-light h1 flex-column">
-          <div class="col-12 d-flex justify-content-evenly">
-            <span>fireflies:<span id="firefliesTotal">0</span></span>
-            <span>fireflies over time:<span id="ffOver">0</span></span>
-            <span>fireflies on click:<span id="ffOnClick">0</span></span>
+      <section class="container-fluid" id="bottomFix">
+        <div class="row text-center justify-content-around">
+          <div
+            class="col-4 text-white d-flex align-items-center bg-danger rounded-pill"
+          >
+            <span class="fs-5 text-center"
+              >Total fireflies caught: <span id="maxTotal">0</span></span
+            >
+          </div>
+          <div
+            class="col-4 text-white bg-danger rounded-pill fw-bold d-flex justify-content-evenly"
+          >
+            <span class="fs-1"
+              >⏱ <span id="timer-icon">0</span><span class="fs-4">s</span></span
+            >
+            <button
+              class="btn btn-primary rounded"
+              onclick="manualClick('electricity')"
+            >
+              buy electricity: <span id="electricity">0</span>
+            </button>
           </div>
         </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="row text-light">
-              <div class="col-8 d-flex flex-column">
-                <span>click upgrades</span>
-                <button id="click1" onclick="allClick('flyCatcher')">
-                  wooden:<span id="cost1"></span>
-                </button>
-                <button id="click2" onclick="allClick('electricCatcher')">
-                  electric:<span id="cost2"></span>
-                </button>
-              </div>
-            </div>
+        <div class="row text-light fs-1 bg-none justify-content-evenly">
+          <div
+            class="col-10 d-flex justify-content-evenly bg-warning rounded-5"
+          >
+            <span>fireflies: <span id="firefliesTotal">0</span></span>
+            <span>fireflies on click: <span id="ffOnClick">0</span></span>
+            <span>fireflies over time: <span id="ffOver">0</span></span>
           </div>
-          <div class="col-4">
-            <div class="row text-light">
-              <div class="col-8 d-flex flex-column">
-                <span> automatic upgrades</span>
-                <button
-                  class="btn btn-primary hidden"
-                  id="auto1"
-                  onclick="allClick('lantern')"
-                >
-                  lantern:<span id="cost3"></span>
-                </button>
-                <button
-                  class="btn btn-primary"
-                  id="auto2"
-                  onclick="allClick('megaLight')"
-                >
-                  megaLight:🐝<span id="cost4"></span>
-                </button>
-              </div>
-            </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-3 bg-white d-flex flex-column justify-content-evenly">
+            <span class="text-center">click upgrades</span>
+            <button
+              class="btn btn-primary"
+              id="click1"
+              onclick="manualClick('flyCatcher')"
+            >
+              wooden:<span id="cost1"></span>
+            </button>
+            <button
+              class="btn btn-primary"
+              id="click2"
+              onclick="manualClick('electricCatcher')"
+            >
+              electric:<span id="cost2"></span>
+            </button>
           </div>
-          <div class="col-4">
+          <div class="col-3 bg-white d-flex flex-column justify-content-evenly">
+            <span class="text-center"> automatic upgrades</span>
+            <button
+              class="btn btn-primary"
+              id="auto1"
+              onclick="manualClick('lantern')"
+            >
+              lantern:<span id="cost3"></span>
+            </button>
+            <button
+              class="btn btn-primary"
+              id="auto2"
+              onclick="manualClick('megaLight')"
+            >
+              megaLight:🐝<span id="cost4"></span>
+            </button>
+          </div>
+          <div class="col-5 bg-black">
             <div class="row text-light justify-content-between">
               <div class="col-12 d-flex justify-content-evenly h4">
                 <div class="d-flex flex-column">
-                  <span>click stats</span>
-                  <span>(standard):<span id="clickUp1">0</span></span>
-                  <span>(heavy):<span id="clickUp2">0</span></span>
+                  <span class="m-1 h1 text-warning">click stats</span>
+                  <span class="m-1"
+                    >(standard):<span id="clickUp1">0</span></span
+                  >
+                  <span class="m-1">(heavy):<span id="clickUp2">0</span></span>
                 </div>
                 <div class="d-flex flex-column">
-                  <span>automatic stats</span>
-                  <span>(standard):<span id="autoUp1">0</span></span>
-                  <span>(heavy):<span id="autoUp2">0</span></span>
+                  <span class="m-2 text-danger h1">automatic stats</span>
+                  <span class="m-1"
+                    >(standard):<span id="autoUp1">0</span></span
+                  >
+                  <span class="m-1">(heavy):<span id="autoUp2">0</span></span>
                 </div>
 
                 <!--  -->
@@ -143,7 +168,7 @@
       </section>
     </main>
     <script
-      src="https://kit.fontawesome.com/a2d3ad0e84.js"
+      src="https://kit.fontawesome.com/8e24215b30.js"
       crossorigin="anonymous"
     ></script>
     <!-- Bootstrap JavaScript Libraries -->
