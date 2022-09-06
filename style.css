@@ -4,6 +4,19 @@
   margin: 0;
   /* font-size: xx-large; */
 }
+
+:root {
+  --color-theme: #7a204e;
+  --color-theme-secondary: #e2b372;
+  --blue-primary: #44cbe8;
+}
+.purple {
+  background-color: var(--color-theme);
+}
+.yellow {
+  background-color: var(--color-theme-secondary);
+}
+
 body {
   background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/668ce5b9-ff0d-4e72-b030-05dcb37eb1cc/dfbxiig-a29d5a3a-248d-46cb-8341-15446088b60d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzY2OGNlNWI5LWZmMGQtNGU3Mi1iMDMwLTA1ZGNiMzdlYjFjY1wvZGZieGlpZy1hMjlkNWEzYS0yNDhkLTQ2Y2ItODM0MS0xNTQ0NjA4OGI2MGQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.KOqfJvj42knmikpMFdZYGtC5_h-lBCvuqdkVUcYHSbI);
   background-size: cover;

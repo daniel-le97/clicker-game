@@ -53,9 +53,9 @@
       }
     </style>
   </head>
-  <body class="debug">
+  <body class="">
     <header class="container-fluid">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-12 h1 text-light text center">Firefly Catcher</div>
       </div>
     </header>
@@ -78,14 +78,14 @@
       <section class="container-fluid" id="bottomFix">
         <div class="row text-center justify-content-around">
           <div
-            class="col-4 text-white d-flex align-items-center bg-danger rounded-pill"
+            class="col-4 text-white d-flex align-items-center purple rounded-pill"
           >
             <span class="fs-5 text-center"
               >Total fireflies caught: <span id="maxTotal">0</span></span
             >
           </div>
           <div
-            class="col-4 text-white bg-danger rounded-pill fw-bold d-flex justify-content-evenly"
+            class="col-4 text-white purple rounded-pill fw-bold d-flex justify-content-evenly"
           >
             <span class="fs-1"
               >⏱ <span id="timer-icon">0</span><span class="fs-4">s</span></span
@@ -97,15 +97,13 @@
             >
               buy electricity: <span id="electricity">0</span>
             </button>
-            <button onclick="manualClick('secondSun')">
+            <button id="second-sun" onclick="manualClick('secondSun')">
               Second Sun: <span id="secondSun">0</span>
             </button>
           </div>
         </div>
         <div class="row text-light fs-1 bg-none justify-content-evenly">
-          <div
-            class="col-10 d-flex justify-content-evenly bg-warning rounded-5"
-          >
+          <div class="col-10 d-flex justify-content-evenly yellow rounded-5">
             <span>fireflies: <span id="firefliesTotal">0</span></span>
             <span>fireflies on click: <span id="ffOnClick">0</span></span>
             <span>fireflies over time: <span id="ffOver">0</span></span>
@@ -146,7 +144,7 @@
               megaLight:🐝<span id="cost4"></span>
             </button>
           </div>
-          <div class="col-5 bg-black">
+          <div class="col-5 purple">
             <div class="row text-light justify-content-between">
               <div class="col-12 d-flex justify-content-evenly h4">
                 <div class="d-flex flex-column">
